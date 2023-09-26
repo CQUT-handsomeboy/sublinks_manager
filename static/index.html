@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/pico.css">
+    <script src="static/zepto.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#submit").click(() => {
+                var content = $("#links").val();
+                $.ajax({
+                    type: 'POST',
+                    url: '/admin',
+                    data: JSON.stringify({ links: content }),
+                    contentType: 'application/json',
+                    success:function(){
+                        alert("更新订阅成功！")
+                    },
+                    error:function(){
+                        alert("更新订阅失败！")
+                    }
+                })
+            });
+        })
+    </script>
+</head>
+<body>
+    <main class="container">
+        <fieldset>
+            <label for="links">
+                订阅链接:
+                <input type="textarea" 
+                    id="links" 
+                    name="links" 
+                    placeholder="vmess://..."
+                required>
+            </label>
+        </fieldset>
+        <fieldset>
+            <button type="submit" id="submit">提交</button>
+        </fieldset>
+    </main>
+</body>
+</html>
