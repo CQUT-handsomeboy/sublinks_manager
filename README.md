@@ -14,6 +14,6 @@ pip3 install -r requirements.txt
 
 2.  后台运行
 
-```shell
+```
 nohup python3 main.py &
 ```
