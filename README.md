@@ -17,3 +17,15 @@ pip3 install -r requirements.txt
 ```
 nohup python3 main.py &
 ```
+
+3.   结束运行
+
+```
+ps aux | grep python3
+```
+
+找到`python3 main.py`当行，复制当行的pid，此处假设为`<pid>`
+
+```
+kill -9 <pid>
+```
